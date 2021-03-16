@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
  * create on 2021/3/16
  * description
  */
-class ViewPager2Adapter(val context: Context): RecyclerView.Adapter<ViewPager2Adapter.ViewHolder>() {
+class ViewPager2Adapter(val context: Context, val datas: List<Int>): RecyclerView.Adapter<ViewPager2Adapter.ViewHolder>() {
     var layoutInflater: LayoutInflater? = null
 
     init {
@@ -33,9 +33,9 @@ class ViewPager2Adapter(val context: Context): RecyclerView.Adapter<ViewPager2Ad
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.ivCover?.background = context.resources.getDrawable(R.mipmap.page1)
+        holder.ivCover?.background = context.resources.getDrawable(datas[position])
     }
 
-    override fun getItemCount() = 3
+    override fun getItemCount() = datas.size
 
 }
